@@ -1,171 +1,148 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  
-  <title>Hexo</title>
-
-  <!-- keywords -->
-  
-
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="element-ui input 无法输入的问题解决办法：可能是组件套用太深，vue检测不到视图更新，在失效输入框的input事件中加 this.$forceUpdate()强制刷新即可； 123456789101112131415    &lt;el-form-item size&#x3D;&quot;small&quot; label&#x3D;&quot;摘要&quot;&gt;             &amp;lt">
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>Hexo | Hexo</title><meta name="author" content="John Doe"><meta name="copyright" content="John Doe"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="element-ui input 无法输入的问题解决办法：可能是组件套用太深，vue检测不到视图更新，在失效输入框的input事件中加 this.$forceUpdate()强制刷新即可； 123456789101112131415    &lt;el-form-item size&#x3D;&quot;small&quot; label&#x3D;&quot;摘要&quot;&gt;             &amp;lt">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo">
 <meta property="og:url" content="http://example.com/2022/08/21/elementUI/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="element-ui input 无法输入的问题解决办法：可能是组件套用太深，vue检测不到视图更新，在失效输入框的input事件中加 this.$forceUpdate()强制刷新即可； 123456789101112131415    &lt;el-form-item size&#x3D;&quot;small&quot; label&#x3D;&quot;摘要&quot;&gt;             &amp;lt">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
 <meta property="article:published_time" content="2022-08-21T08:36:06.023Z">
 <meta property="article:modified_time" content="2021-07-22T06:30:31.298Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
-  
-    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/img/favicon.ico">
-  
-  
-<link rel="stylesheet" href="/css/style.css">
+<meta name="twitter:image" content="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2022/08/21/elementUI/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Hexo',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2021-07-22 14:30:31'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
 
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
   
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
   
-
-  
-<script src="//cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
-
-  
-<script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
-
-
-  
-<meta name="generator" content="Hexo 6.2.0"></head>
-<body>
-  <div id="container">
-    <div id="particles-js"></div>
-    <div class="left-col">
-    <div class="overlay"></div>
-<div class="intrude-less">
-	<header id="header" class="inner">
-		<a href="/" class="profilepic">
-			
-				<img lazy-src="" class="js-avatar">
-			
-		</a>
-
-		<hgroup>
-			<h1 class="header-author"><a href="/">John Doe</a></h1>
-		</hgroup>
-
-		
-
-		<div class="switch-area">
-			<div class="switch-wrap">
-				<section class="switch-part switch-part1">
-					<nav class="header-menu">
-						<ul>
-						
-							<li><a href="/">Home</a></li>
-				        
-							<li><a href="/archives">Archives</a></li>
-				        
-						</ul>
-					</nav>
-					<nav class="half-header-menu">
-						<a class="hide">Home</a>
-						<a>Tags</a>
-						<a>Links</a>
-						<a>About</a>
-					</nav>
-					<nav class="header-nav">
-						<div class="social">
-							
-						</div>
-						<!-- music -->
-						
-					</nav>
-				</section>
-				
-				
-				<section class="switch-part switch-part2">
-					<div class="widget tagcloud" id="js-tagcloud">
-						
-					</div>
-				</section>
-				
-				
-				
-				<section class="switch-part switch-part3">
-					<div id="js-friends">
-					
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://github.com/">github</a>
-			        
-			        </div>
-				</section>
-				
-
-				
-				
-				<section class="switch-part switch-part4">
-				
-					<div id="js-aboutme">I&#39;m a developer.</div>
-				</section>
-				
-			</div>
-		</div>
-	</header>				
-</div>
-    </div>
-    <div class="mid-col">
-      <nav id="mobile-nav">
-  	<div class="overlay">
-  		<div class="slider-trigger"></div>
-  		<h1 class="header-author js-mobile-header hide"></h1>
-  	</div>
-	<div class="intrude-less">
-		<header id="header" class="inner">
-			<div class="profilepic">
-				<img lazy-src="" class="js-avatar">
-			</div>
-			<hgroup>
-			  <h1 class="header-author"></h1>
-			</hgroup>
-			
-			<nav class="header-menu">
-				<ul>
-				
-					<li><a href="/">Home</a></li>
-		        
-					<li><a href="/archives">Archives</a></li>
-		        
-		        <div class="clearfix"></div>
-				</ul>
-			</nav>
-			<nav class="header-nav">
-				<div class="social">
-					
-				</div>
-			</nav>
-		</header>				
-	</div>
-</nav>
-      <div class="body-wrap"><article id="post-elementUI" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2022/08/21/elementUI/" class="article-date">
-  	<time datetime="2022-08-21T08:36:06.023Z" itemprop="datePublished">2022-08-21</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
     
-      <input type="hidden" class="isFancy" />
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
     
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="element-ui-input-无法输入的问题"><a href="#element-ui-input-无法输入的问题" class="headerlink" title="element-ui input 无法输入的问题"></a>element-ui input 无法输入的问题</h1><p>解决办法：可能是组件套用太深，vue检测不到视图更新，在失效输入框的input事件中加 this.$forceUpdate()强制刷新即可；</p>
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">13</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr/></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Hexo</a></span><div id="menus"><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">No title</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2022-08-21T08:36:06.023Z" title="Created 2022-08-21 16:36:06">2022-08-21</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2021-07-22T06:30:31.298Z" title="Updated 2021-07-22 14:30:31">2021-07-22</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="element-ui-input-无法输入的问题"><a href="#element-ui-input-无法输入的问题" class="headerlink" title="element-ui input 无法输入的问题"></a>element-ui input 无法输入的问题</h1><p>解决办法：可能是组件套用太深，vue检测不到视图更新，在失效输入框的input事件中加 this.$forceUpdate()强制刷新即可；</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">    &lt;el-form-item size=<span class="string">&quot;small&quot;</span> label=<span class="string">&quot;摘要&quot;</span>&gt;</span><br><span class="line">             <span class="language-xml"><span class="tag">&lt;<span class="name">el-input</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">               <span class="attr">v-model</span>=<span class="string">&quot;ruleForm.summary&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">               <span class="attr">placeholder</span>=<span class="string">&quot;摘要&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">               <span class="attr">:autosize</span>=<span class="string">&quot;&#123; minRows: 3, maxRows: 3 &#125;&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">               <span class="attr">type</span>=<span class="string">&quot;textarea&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">               <span class="attr">class</span>=<span class="string">&quot;form_ipt_long&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">               @<span class="attr">input</span>=<span class="string">&quot;forceUpdate&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">             /&gt;</span></span></span><br><span class="line">           &lt;/el-form-item&gt;</span><br><span class="line"></span><br><span class="line"><span class="attr">methods</span>: &#123;</span><br><span class="line">   <span class="title function_">forceUpdate</span>(<span class="params"></span>) &#123;</span><br><span class="line">     <span class="variable language_">this</span>.$forceUpdate()</span><br><span class="line">   &#125;,&#125;</span><br></pre></td></tr></table></figure>
 
 <h1 id="表单校验"><a href="#表单校验" class="headerlink" title="表单校验"></a>表单校验</h1><p>this.$refs[ruleForm].validate这种写法会报错</p>
@@ -194,79 +171,4 @@
 
 <h1 id="el-input限制输入数字"><a href="#el-input限制输入数字" class="headerlink" title="el-input限制输入数字"></a>el-input限制输入数字</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">输入框中限制通常有三种处理方法</span><br><span class="line"></span><br><span class="line">第一种：设置type属性（不推荐）</span><br><span class="line"></span><br><span class="line">设置type属性为number，text等等，此方法输入框的后面会有不必要样式出现</span><br><span class="line"></span><br><span class="line">&lt;el-input  type=<span class="string">&quot;number&quot;</span>&gt;&lt;/el-input&gt;</span><br><span class="line">第二种：在属性中添加onkeyup或者oninput进行正则判断</span><br><span class="line"></span><br><span class="line">onkeyup，oninput，onchange各有好坏，在这里，推荐onkeyup，在要求不是太高的系统中可以这样使用</span><br><span class="line"></span><br><span class="line">&lt;el-input </span><br><span class="line">    v-model=<span class="string">&quot;form&quot;</span> </span><br><span class="line">    onkeyup=<span class="string">&quot;value=value.replace(/[^\d]/g,0)&quot;</span>&gt;</span><br><span class="line">&lt;/el-input&gt;</span><br><span class="line">第三种：通过监听事件监听，对于一些特殊要求的输入框可以采用此方法</span><br><span class="line"></span><br><span class="line">当输入完毕后检查整段输入值的规则是否符合，如果不符合就设置为空。</span><br><span class="line"></span><br><span class="line">因为不知道用户中途会不会输入英文字母，汉字，特殊字符等等不规则字符。</span><br><span class="line"></span><br><span class="line">采用第二种方法就会难以判断字符的格式，最后用户确认时说不定会报错。</span><br><span class="line"></span><br><span class="line">以手机号码为例（其他格式都一样，都只是换一下正则表达式罢了）</span><br><span class="line"></span><br><span class="line">&lt;el-input</span><br><span class="line">     v-model=<span class="string">&quot;form.telephone&quot;</span></span><br><span class="line">     placeholder=<span class="string">&quot;请输入11位手机号&quot;</span></span><br><span class="line">     @change=<span class="string">&quot;confirmTelephone&quot;</span>&gt;</span><br><span class="line">&lt;/el-input&gt;</span><br><span class="line">methods中</span><br><span class="line"></span><br><span class="line"><span class="title function_">confirmTelephone</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (!<span class="regexp">/^1[0-9]&#123;10&#125;$/</span>.<span class="title function_">test</span>(<span class="variable language_">this</span>.<span class="property">form</span>.<span class="property">telephone</span>))</span><br><span class="line">          <span class="variable language_">this</span>.<span class="property">form</span>.<span class="property">telephone</span> = <span class="string">&#x27;&#x27;</span>;</span><br><span class="line"> &#125;,</span><br></pre></td></tr></table></figure>
 
-
-      
-    </div>
-    
-  </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/2022/08/21/JS%E7%AC%94%E8%AE%B0/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">&lt;</strong>
-      <div class="article-nav-title">
-        
-          (no title)
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2022/08/21/echarts/eCharts%E7%AC%94%E8%AE%B0/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title"></div>
-      <strong class="article-nav-caption">&gt;</strong>
-    </a>
-  
-</nav>
-
-  
-</article>
-
-
-
-
-
-
-</div>
-      <footer id="footer">
-  <div class="outer">
-    <div id="footer-info">
-      <div class="footer-left">
-        &copy; 2022 John Doe
-      </div>
-        <div class="footer-right">
-          <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/preccrep/hexo-theme-jelly" target="_blank">Jelly</a>
-        </div>
-    </div>
-  </div>
-</footer>
-    </div>
-    
-  
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-
-
-
-<script>
-	var yiliaConfig = {
-		fancybox: true,
-		mathjax: false,
-		animate: true,
-		isHome: false,
-		isPost: true,
-		isArchive: false,
-		isTag: false,
-		isCategory: false,
-		open_in_new: false
-	}
-</script>
-
-<script src="/js/main.js"></script>
-
-
-
-
-  </div>
-</body>
-</html>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://example.com">John Doe</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://example.com/2022/08/21/elementUI/">http://example.com/2022/08/21/elementUI/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/08/21/JS%E7%AC%94%E8%AE%B0/"><img class="prev-cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info"></div></div></a></div><div class="next-post pull-right"><a href="/2022/08/21/echarts/eCharts%E7%AC%94%E8%AE%B0/"><img class="next-cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info"></div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">John Doe</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">13</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#element-ui-input-%E6%97%A0%E6%B3%95%E8%BE%93%E5%85%A5%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-number">1.</span> <span class="toc-text">element-ui input 无法输入的问题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%A1%A8%E5%8D%95%E6%A0%A1%E9%AA%8C"><span class="toc-number">2.</span> <span class="toc-text">表单校验</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#switch%E5%BC%80%E5%85%B3%E4%BF%AE%E6%94%B9%E5%A4%B1%E8%B4%A5%E5%9B%9E%E5%BC%B9"><span class="toc-number">3.</span> <span class="toc-text">switch开关修改失败回弹</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%88%86%E5%89%B2%E7%BA%BF"><span class="toc-number">4.</span> <span class="toc-text">分割线</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#element-ui-%E4%B8%AD-table%E8%A1%A8%E6%A0%BC%E5%86%85%E5%AE%B9%E6%98%BE%E7%A4%BA%E6%BB%9A%E5%8A%A8%E6%9D%A1"><span class="toc-number">5.</span> <span class="toc-text">element-ui 中 table表格内容显示滚动条</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#dialog%E5%86%85%E5%AE%B9%E5%B1%85%E4%B8%AD-%E8%87%AA%E9%80%82%E5%BA%94"><span class="toc-number">6.</span> <span class="toc-text">dialog内容居中(自适应)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#select%E4%B8%8B%E6%8B%89%E6%A1%86%E6%98%BE%E7%A4%BA%E4%BD%8D%E7%BD%AE%E4%B8%8D%E5%AF%B9"><span class="toc-number">7.</span> <span class="toc-text">select下拉框显示位置不对</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#dialog%E5%85%B3%E9%97%AD%E4%B8%8D%E4%BA%86%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-number">8.</span> <span class="toc-text">dialog关闭不了的问题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#el-input%E9%99%90%E5%88%B6%E8%BE%93%E5%85%A5%E6%95%B0%E5%AD%97"><span class="toc-number">9.</span> <span class="toc-text">el-input限制输入数字</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/08/21/element-ui/" title="No title"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="No title"/></a><div class="content"><a class="title" href="/2022/08/21/element-ui/" title="No title">No title</a><time datetime="2022-08-21T09:26:38.213Z" title="Created 2022-08-21 17:26:38">2022-08-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/08/21/%E6%9D%83%E9%99%90%E8%AE%BE%E8%AE%A1%E5%92%8C%E7%AE%A1%E7%90%86/" title="No title"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="No title"/></a><div class="content"><a class="title" href="/2022/08/21/%E6%9D%83%E9%99%90%E8%AE%BE%E8%AE%A1%E5%92%8C%E7%AE%A1%E7%90%86/" title="No title">No title</a><time datetime="2022-08-21T09:02:33.135Z" title="Created 2022-08-21 17:02:33">2022-08-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/08/21/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%AC%94%E8%AE%B0x/" title="No title"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="No title"/></a><div class="content"><a class="title" href="/2022/08/21/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%AC%94%E8%AE%B0x/" title="No title">No title</a><time datetime="2022-08-21T08:41:34.473Z" title="Created 2022-08-21 16:41:34">2022-08-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/08/21/%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7%E5%BC%80%E5%8F%91/" title="No title"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="No title"/></a><div class="content"><a class="title" href="/2022/08/21/%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7%E5%BC%80%E5%8F%91/" title="No title">No title</a><time datetime="2022-08-21T08:41:34.469Z" title="Created 2022-08-21 16:41:34">2022-08-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/08/21/%E6%A0%91%E5%BD%A2%E7%BB%93%E6%9E%84%E9%81%8D%E5%8E%86/" title="No title"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="No title"/></a><div class="content"><a class="title" href="/2022/08/21/%E6%A0%91%E5%BD%A2%E7%BB%93%E6%9E%84%E9%81%8D%E5%8E%86/" title="No title">No title</a><time datetime="2022-08-21T08:41:34.465Z" title="Created 2022-08-21 16:41:34">2022-08-21</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By John Doe</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
