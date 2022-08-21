@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="element-ui input 无法输入的问题解决办法：可能是组件套用太深，vue检测不到视图更新，在失效输入框的input事件中加 this.$forceUpdate()强制刷新即可； 123456789101112131415    &lt;el-form-item size&#x3D;&quot;small&quot; label&#x3D;&quot;摘要&quot;&gt;             &amp;lt">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2022/08/21/elementUI/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="element-ui input 无法输入的问题解决办法：可能是组件套用太深，vue检测不到视图更新，在失效输入框的input事件中加 this.$forceUpdate()强制刷新即可； 123456789101112131415    &lt;el-form-item size&#x3D;&quot;small&quot; label&#x3D;&quot;摘要&quot;&gt;             &amp;lt">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-08-21T08:36:06.023Z">
+<meta property="article:modified_time" content="2021-07-22T06:30:31.298Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-elementUI" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/08/21/elementUI/" class="article-date">
+  <time class="dt-published" datetime="2022-08-21T08:36:06.023Z" itemprop="datePublished">2022-08-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="element-ui-input-无法输入的问题"><a href="#element-ui-input-无法输入的问题" class="headerlink" title="element-ui input 无法输入的问题"></a>element-ui input 无法输入的问题</h1><p>解决办法：可能是组件套用太深，vue检测不到视图更新，在失效输入框的input事件中加 this.$forceUpdate()强制刷新即可；</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">    &lt;el-form-item size=<span class="string">&quot;small&quot;</span> label=<span class="string">&quot;摘要&quot;</span>&gt;</span><br><span class="line">             <span class="language-xml"><span class="tag">&lt;<span class="name">el-input</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">               <span class="attr">v-model</span>=<span class="string">&quot;ruleForm.summary&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">               <span class="attr">placeholder</span>=<span class="string">&quot;摘要&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">               <span class="attr">:autosize</span>=<span class="string">&quot;&#123; minRows: 3, maxRows: 3 &#125;&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">               <span class="attr">type</span>=<span class="string">&quot;textarea&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">               <span class="attr">class</span>=<span class="string">&quot;form_ipt_long&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">               @<span class="attr">input</span>=<span class="string">&quot;forceUpdate&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">             /&gt;</span></span></span><br><span class="line">           &lt;/el-form-item&gt;</span><br><span class="line"></span><br><span class="line"><span class="attr">methods</span>: &#123;</span><br><span class="line">   <span class="title function_">forceUpdate</span>(<span class="params"></span>) &#123;</span><br><span class="line">     <span class="variable language_">this</span>.$forceUpdate()</span><br><span class="line">   &#125;,&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="表单校验"><a href="#表单校验" class="headerlink" title="表单校验"></a>表单校验</h1><p>this.$refs[ruleForm].validate这种写法会报错</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">   prop=<span class="string">&quot;requirement&quot;</span></span><br><span class="line">              &gt;</span><br><span class="line">                <span class="language-xml"><span class="tag">&lt;<span class="name">el-input</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">                  <span class="attr">type</span>=<span class="string">&quot;textarea&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">                  <span class="attr">v-model</span>=<span class="string">&quot;selectVal.requirement&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml"></span></span></span><br><span class="line"><span class="tag"><span class="language-xml"><span class="attr">prop的值要跟v-model后面的值保持一致否则会校验出错</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml"><span class="attr">rulers校验规则里也要保持一致</span></span></span></span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="switch开关修改失败回弹"><a href="#switch开关修改失败回弹" class="headerlink" title="switch开关修改失败回弹"></a>switch开关修改失败回弹</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">   &lt;el-<span class="keyword">switch</span></span><br><span class="line">              v-model=<span class="string">&quot;scope.row.isShow&quot;</span></span><br><span class="line">              active-color=<span class="string">&quot;#13ce66&quot;</span></span><br><span class="line">              inactive-color=<span class="string">&quot;#ff4949&quot;</span></span><br><span class="line">              :active-value=<span class="string">&quot;1&quot;</span></span><br><span class="line">              :inactive-value=<span class="string">&quot;0&quot;</span></span><br><span class="line">              @change=<span class="string">&quot;changeShow(scope.row)&quot;</span></span><br><span class="line">            /&gt;</span><br><span class="line"></span><br><span class="line"><span class="title function_">changeShowStatus</span>(&#123;</span><br><span class="line">        <span class="attr">id</span>: row.<span class="property">id</span>,</span><br><span class="line">        <span class="attr">isShow</span>: row.<span class="property">isShow</span></span><br><span class="line">      &#125;).<span class="title function_">then</span>(<span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (res.<span class="property">success</span>) &#123;</span><br><span class="line">          <span class="variable language_">this</span>.<span class="property">$message</span>.<span class="title function_">success</span>(<span class="string">&#x27;修改文章状态成功&#x27;</span>)</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">          <span class="variable language_">this</span>.<span class="property">$message</span>.<span class="title function_">error</span>(<span class="string">&#x27;文章修改失败&#x27;</span>)</span><br><span class="line">          <span class="comment">// 如果文章修改失败,状态应该回到之前的状态</span></span><br><span class="line">          row.<span class="property">isShow</span> = tempStatus</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="分割线"><a href="#分割线" class="headerlink" title="分割线"></a>分割线</h1>   <el-divider />
+
+<h1 id="element-ui-中-table表格内容显示滚动条"><a href="#element-ui-中-table表格内容显示滚动条" class="headerlink" title="element-ui 中 table表格内容显示滚动条"></a>element-ui 中 table表格内容显示滚动条</h1><p>固定element-ui中table的表头，纵向内容过多时，可选择固定表头。</p>
+<p>只要在el-table元素中定义了height属性，即可实现固定表头的表格，而不需要额外的代码。</p>
+<p>必须要在el-table 元素里面设置 height&#x3D;“250” （高度可自行调整），这样整个表格的表头可以固定，实现右侧内容滚动 。<br>如果设置整个.table-container容器的height: 250px， 这样右侧的滚动将不会显示。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;template&gt;</span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">el-table</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">    <span class="attr">:data</span>=<span class="string">&quot;tableData&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">    <span class="attr">height</span>=<span class="string">&quot;250&quot;</span>  </span></span></span><br><span class="line"><span class="tag"><span class="language-xml">    <span class="attr">border</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">    <span class="attr">class</span>=<span class="string">&quot;table-container&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">  </span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">el-table-column</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">      <span class="attr">prop</span>=<span class="string">&quot;date&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">      <span class="attr">label</span>=<span class="string">&quot;日期&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">      <span class="attr">width</span>=<span class="string">&quot;180&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">el-table-column</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    </span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">el-table-column</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">      <span class="attr">prop</span>=<span class="string">&quot;name&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">      <span class="attr">label</span>=<span class="string">&quot;姓名&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">      <span class="attr">width</span>=<span class="string">&quot;180&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">el-table-column</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    </span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">el-table-column</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">      <span class="attr">prop</span>=<span class="string">&quot;address&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">      <span class="attr">label</span>=<span class="string">&quot;地址&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">el-table-column</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    </span></span><br><span class="line"><span class="language-xml">  <span class="tag">&lt;/<span class="name">el-table</span>&gt;</span></span></span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">  <span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    <span class="title function_">data</span>(<span class="params"></span>) &#123;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">      <span class="keyword">return</span> &#123;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        <span class="attr">tableData</span>: [&#123;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">          <span class="attr">date</span>: <span class="string">&#x27;2016-05-03&#x27;</span>,</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">          <span class="attr">name</span>: <span class="string">&#x27;王小虎&#x27;</span>,</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">          <span class="attr">address</span>: <span class="string">&#x27;上海市普陀区金沙江路 1518 弄&#x27;</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        &#125;, &#123;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">          <span class="attr">date</span>: <span class="string">&#x27;2016-05-02&#x27;</span>,</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">          <span class="attr">name</span>: <span class="string">&#x27;王小虎&#x27;</span>,</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">          <span class="attr">address</span>: <span class="string">&#x27;上海市普陀区金沙江路 1518 弄&#x27;</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        &#125;, &#123;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">          <span class="attr">date</span>: <span class="string">&#x27;2016-05-04&#x27;</span>,</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">          <span class="attr">name</span>: <span class="string">&#x27;王小虎&#x27;</span>,</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">          <span class="attr">address</span>: <span class="string">&#x27;上海市普陀区金沙江路 1518 弄&#x27;</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        &#125;, &#123;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">          <span class="attr">date</span>: <span class="string">&#x27;2016-05-01&#x27;</span>,</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">          <span class="attr">name</span>: <span class="string">&#x27;王小虎&#x27;</span>,</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">          <span class="attr">address</span>: <span class="string">&#x27;上海市普陀区金沙江路 1518 弄&#x27;</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        &#125;, &#123;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">          <span class="attr">date</span>: <span class="string">&#x27;2016-05-08&#x27;</span>,</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">          <span class="attr">name</span>: <span class="string">&#x27;王小虎&#x27;</span>,</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">          <span class="attr">address</span>: <span class="string">&#x27;上海市普陀区金沙江路 1518 弄&#x27;</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        &#125;, &#123;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">          <span class="attr">date</span>: <span class="string">&#x27;2016-05-06&#x27;</span>,</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">          <span class="attr">name</span>: <span class="string">&#x27;王小虎&#x27;</span>,</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">          <span class="attr">address</span>: <span class="string">&#x27;上海市普陀区金沙江路 1518 弄&#x27;</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        &#125;, &#123;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">          <span class="attr">date</span>: <span class="string">&#x27;2016-05-07&#x27;</span>,</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">          <span class="attr">name</span>: <span class="string">&#x27;王小虎&#x27;</span>,</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">          <span class="attr">address</span>: <span class="string">&#x27;上海市普陀区金沙江路 1518 弄&#x27;</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        &#125;]</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">      &#125;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    &#125;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">  &#125;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span></span><br><span class="line"><span class="language-css"><span class="language-xml"><span class="selector-class">.table-container</span>&#123;<span class="comment">/* 表格整体 */</span></span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">   <span class="attribute">width</span>:<span class="number">1350px</span>;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">   // <span class="attribute">height</span>: <span class="number">250px</span>; </span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">   <span class="attribute">margin-left</span>:<span class="number">130px</span>;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">   <span class="attribute">margin-top</span>:<span class="number">50px</span>;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">&#125;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml"></span></span></span><br><span class="line"><span class="language-css"><span class="language-xml"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h1 id="dialog内容居中-自适应"><a href="#dialog内容居中-自适应" class="headerlink" title="dialog内容居中(自适应)"></a>dialog内容居中(自适应)</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">/deep/ .<span class="property">el</span>-dialog &#123;</span><br><span class="line"></span><br><span class="line"> <span class="attr">display</span>: flex;</span><br><span class="line"></span><br><span class="line"> flex-<span class="attr">direction</span>: column;</span><br><span class="line"></span><br><span class="line"> <span class="attr">margin</span>: <span class="number">0</span> !important;</span><br><span class="line"></span><br><span class="line"> <span class="attr">position</span>: absolute;</span><br><span class="line"></span><br><span class="line"> <span class="attr">top</span>: <span class="number">50</span>%;</span><br><span class="line"></span><br><span class="line"> <span class="attr">left</span>: <span class="number">50</span>%;</span><br><span class="line"></span><br><span class="line"> <span class="attr">transform</span>: <span class="title function_">translate</span>(-<span class="number">50</span>%, -<span class="number">50</span>%);</span><br><span class="line"></span><br><span class="line"> <span class="comment">/*height:600px;*/</span></span><br><span class="line"></span><br><span class="line"> max-<span class="attr">height</span>: <span class="title function_">calc</span>(<span class="number">100</span>% - 30px);</span><br><span class="line"></span><br><span class="line"> max-<span class="attr">width</span>: <span class="title function_">calc</span>(<span class="number">100</span>% - 30px);</span><br><span class="line"></span><br><span class="line"> .<span class="property">el</span>-dialog__body &#123;</span><br><span class="line"></span><br><span class="line">  <span class="attr">flex</span>: <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">  <span class="attr">overflow</span>: auto;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// margin: 0 auto;</span></span><br><span class="line"></span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="select下拉框显示位置不对"><a href="#select下拉框显示位置不对" class="headerlink" title="select下拉框显示位置不对"></a>select下拉框显示位置不对</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"> &lt;el-select</span><br><span class="line">               :popper-append-to-body=<span class="string">&#x27;false&#x27;</span></span><br><span class="line">                @change=<span class="string">&quot;businessChange&quot;</span></span><br><span class="line">                v-model=<span class="string">&quot;buinessAre&quot;</span></span><br><span class="line">                multiple</span><br><span class="line">                placeholder=<span class="string">&quot;请选择&quot;</span></span><br><span class="line">              &gt;</span><br><span class="line">                    </span><br><span class="line">    若不行的话加样式</span><br><span class="line">/deep/ .<span class="property">el</span>-select-dropdown&#123;</span><br><span class="line">  <span class="attr">position</span>: absolute !important;</span><br><span class="line">  <span class="attr">top</span>: 30px !important;</span><br><span class="line">  <span class="attr">left</span>: 0px !important;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">  margin-<span class="attr">top</span>: 30px;</span><br><span class="line">  <span class="attr">padding</span>: 20px;  </span><br><span class="line"><span class="regexp">/deep/</span> .<span class="property">el</span>-input &#123;</span><br><span class="line">    .<span class="property">el</span>-input__inner &#123;</span><br><span class="line">      <span class="attr">width</span>: <span class="number">211.</span>5px;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">  /deep/ .<span class="property">el</span>-input--suffix&#123;</span><br><span class="line">  .<span class="property">el</span>-input__inner&#123;</span><br><span class="line">    <span class="attr">width</span>: <span class="number">211.</span>5px;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">/deep/ .<span class="property">el</span>-input&#123;</span><br><span class="line">  .<span class="property">el</span>-input__inner&#123;</span><br><span class="line">    <span class="attr">width</span>: <span class="number">211.</span>5px;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="dialog关闭不了的问题"><a href="#dialog关闭不了的问题" class="headerlink" title="dialog关闭不了的问题"></a>dialog关闭不了的问题</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">detailTableData</span>(<span class="params">row</span>) &#123;</span><br><span class="line"></span><br><span class="line">     <span class="variable language_">this</span>.<span class="property">dialogDetailVisible</span> = <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">     <span class="variable language_">this</span>.<span class="title function_">getSelectVal3</span>();</span><br><span class="line">     <span class="variable language_">this</span>.<span class="title function_">getUser</span>(row);</span><br><span class="line"></span><br><span class="line">     <span class="variable language_">this</span>.<span class="title function_">getDetailsFrom</span>(row);<span class="comment">//这个方法请求的数据若为null</span></span><br><span class="line">    <span class="comment">//则vue源码会报错</span></span><br><span class="line">     <span class="variable language_">this</span>.<span class="property">orgTypeId</span> = row.<span class="property">orgTypeId</span>;</span><br><span class="line">     <span class="comment">// this.proId=row.id;//绑定项目id</span></span><br><span class="line">     <span class="variable language_">this</span>.<span class="property">proDialogForm</span> = <span class="title class_">Object</span>.<span class="title function_">assign</span>(&#123;&#125;, row);</span><br><span class="line">   &#125;,</span><br><span class="line">       </span><br><span class="line">   <span class="title function_">getDetailsFrom</span>(<span class="params">row</span>) &#123;</span><br><span class="line">     <span class="comment">// console.info(&quot;==========================&quot;)</span></span><br><span class="line">     <span class="variable language_">this</span>.<span class="property">proForm</span>.<span class="property">proId</span> = row.<span class="property">id</span>; <span class="comment">//绑定项目id</span></span><br><span class="line">     <span class="title function_">getDetails</span>(<span class="variable language_">this</span>.<span class="property">proForm</span>)</span><br><span class="line">       .<span class="title function_">then</span>(<span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</span><br><span class="line">         <span class="variable language_">console</span>.<span class="title function_">info</span>(<span class="string">&quot;proForm:&quot;</span>, res.<span class="property">data</span>);</span><br><span class="line">         <span class="comment">// this.preceptDetailsFrom = res.data;</span></span><br><span class="line">         <span class="comment">//解决办法在这里判断一下</span></span><br><span class="line">         <span class="keyword">if</span>(res.<span class="property">data</span>==<span class="literal">null</span>)&#123;</span><br><span class="line">           <span class="variable language_">this</span>.<span class="property">preceptDetailsFrom</span>=[]</span><br><span class="line">         &#125;</span><br><span class="line">         <span class="keyword">else</span>&#123;</span><br><span class="line">           <span class="variable language_">this</span>.<span class="property">preceptDetailsFrom</span> = res.<span class="property">data</span>;</span><br><span class="line">         &#125;</span><br><span class="line">         <span class="variable language_">this</span>.<span class="property">tableDataAirelist</span> = <span class="literal">false</span>;</span><br><span class="line">       &#125;)</span><br><span class="line">       .<span class="title function_">catch</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">         <span class="variable language_">this</span>.<span class="property">tableDataAirelist</span> = <span class="literal">false</span>;</span><br><span class="line">       &#125;);</span><br><span class="line">   &#125;,</span><br></pre></td></tr></table></figure>
+
+<h1 id="el-input限制输入数字"><a href="#el-input限制输入数字" class="headerlink" title="el-input限制输入数字"></a>el-input限制输入数字</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">输入框中限制通常有三种处理方法</span><br><span class="line"></span><br><span class="line">第一种：设置type属性（不推荐）</span><br><span class="line"></span><br><span class="line">设置type属性为number，text等等，此方法输入框的后面会有不必要样式出现</span><br><span class="line"></span><br><span class="line">&lt;el-input  type=<span class="string">&quot;number&quot;</span>&gt;&lt;/el-input&gt;</span><br><span class="line">第二种：在属性中添加onkeyup或者oninput进行正则判断</span><br><span class="line"></span><br><span class="line">onkeyup，oninput，onchange各有好坏，在这里，推荐onkeyup，在要求不是太高的系统中可以这样使用</span><br><span class="line"></span><br><span class="line">&lt;el-input </span><br><span class="line">    v-model=<span class="string">&quot;form&quot;</span> </span><br><span class="line">    onkeyup=<span class="string">&quot;value=value.replace(/[^\d]/g,0)&quot;</span>&gt;</span><br><span class="line">&lt;/el-input&gt;</span><br><span class="line">第三种：通过监听事件监听，对于一些特殊要求的输入框可以采用此方法</span><br><span class="line"></span><br><span class="line">当输入完毕后检查整段输入值的规则是否符合，如果不符合就设置为空。</span><br><span class="line"></span><br><span class="line">因为不知道用户中途会不会输入英文字母，汉字，特殊字符等等不规则字符。</span><br><span class="line"></span><br><span class="line">采用第二种方法就会难以判断字符的格式，最后用户确认时说不定会报错。</span><br><span class="line"></span><br><span class="line">以手机号码为例（其他格式都一样，都只是换一下正则表达式罢了）</span><br><span class="line"></span><br><span class="line">&lt;el-input</span><br><span class="line">     v-model=<span class="string">&quot;form.telephone&quot;</span></span><br><span class="line">     placeholder=<span class="string">&quot;请输入11位手机号&quot;</span></span><br><span class="line">     @change=<span class="string">&quot;confirmTelephone&quot;</span>&gt;</span><br><span class="line">&lt;/el-input&gt;</span><br><span class="line">methods中</span><br><span class="line"></span><br><span class="line"><span class="title function_">confirmTelephone</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (!<span class="regexp">/^1[0-9]&#123;10&#125;$/</span>.<span class="title function_">test</span>(<span class="variable language_">this</span>.<span class="property">form</span>.<span class="property">telephone</span>))</span><br><span class="line">          <span class="variable language_">this</span>.<span class="property">form</span>.<span class="property">telephone</span> = <span class="string">&#x27;&#x27;</span>;</span><br><span class="line"> &#125;,</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/08/21/elementUI/" data-id="cl734ggsl0000hcuo92a3cjre" data-title="" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2022/08/21/JS%E7%AC%94%E8%AE%B0/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/08/21/eCharts%E7%AC%94%E8%AE%B0/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">August 2022</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/08/21/%E6%9D%83%E9%99%90%E8%AE%BE%E8%AE%A1%E5%92%8C%E7%AE%A1%E7%90%86/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/08/21/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%AC%94%E8%AE%B0x/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/08/21/%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7%E5%BC%80%E5%8F%91/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/08/21/%E6%A0%91%E5%BD%A2%E7%BB%93%E6%9E%84%E9%81%8D%E5%8E%86/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/08/21/%E6%BD%98%E5%AE%B6%E6%88%90%E4%B8%AD%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86%E6%A8%A1%E6%9D%BF/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2022 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
