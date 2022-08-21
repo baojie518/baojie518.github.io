@@ -1,32 +1,287 @@
-extends includes/layout.pug
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Hexo</title>
 
-block content
-  #post
-    if top_img === false
-      include includes/header/post-info.pug
+  <!-- keywords -->
+  
 
-    article#article-container.post-content!=page.content
-    include includes/post/post-copyright.pug
-    .tag_share
-      if (theme.post_meta.post.tags)
-        .post-meta__tag-list
-          each item, index in page.tags.data
-            a(href=url_for(item.path)).post-meta__tags #[=item.name]
-      include includes/third-party/share/index.pug
-        
-    if theme.reward.enable && theme.reward.QR_code
-      !=partial('includes/post/reward', {}, {cache: true})
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="乐购项目遇到的问题总结方法一响应路由参数的变化提醒一下，当使用路由参数时，例如从 &#x2F;user&#x2F;foo 导航到 &#x2F;user&#x2F;bar，原来的组件实例会被复用。因为两个路由都渲染同个组件，比起销毁再创建，复用则显得更加高效。不过，这也意味着组件的生命周期钩子不会再被调用。 复用组件时，想对路由参数的变化作出响应的话，你可以简单地 watch (监测变化) $route 对象： 12345678const">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2022/08/21/%E4%B9%90%E8%B4%AD%E9%A1%B9%E7%9B%AE%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="乐购项目遇到的问题总结方法一响应路由参数的变化提醒一下，当使用路由参数时，例如从 &#x2F;user&#x2F;foo 导航到 &#x2F;user&#x2F;bar，原来的组件实例会被复用。因为两个路由都渲染同个组件，比起销毁再创建，复用则显得更加高效。不过，这也意味着组件的生命周期钩子不会再被调用。 复用组件时，想对路由参数的变化作出响应的话，你可以简单地 watch (监测变化) $route 对象： 12345678const">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="e:/MD学习笔记/img/路由跳转1.jpg">
+<meta property="og:image" content="e:/MD学习笔记/img/路由守卫.jpg">
+<meta property="og:image" content="e:/MD学习笔记/img/路由.jpg">
+<meta property="og:image" content="e:/MD学习笔记/img/第四种.jpg">
+<meta property="og:image" content="e:/MD学习笔记/img/服装.jpg">
+<meta property="og:image" content="e:/MD学习笔记/img/name.jpg">
+<meta property="og:image" content="e:/MD学习笔记/img/keep.jpg">
+<meta property="og:image" content="e:/MD学习笔记/img/meta.jpg">
+<meta property="og:image" content="e:/MD学习笔记/img/213123.jpg">
+<meta property="og:image" content="e:/MD学习笔记/img/active.jpg">
+<meta property="article:published_time" content="2022-08-21T08:38:43.237Z">
+<meta property="article:modified_time" content="2021-04-17T14:07:02.454Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="e:/MD学习笔记/img/路由跳转1.jpg">
+  
+    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.ico">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
 
-    //- ad
-    if theme.ad && theme.ad.post
-      .ads-wrap!=theme.ad.post
+  
+  
 
-    if theme.post_pagination
-      include includes/pagination.pug
-    if theme.related_post && theme.related_post.enable
-      != related_posts(page,site.posts)
+  
+<script src="//cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
 
-    if page.comments !== false && theme.comments && theme.comments.use
-      - var commentsJsLoad = true
-      !=partial('includes/third-party/comments/index', {}, {cache: true})
+  
+<script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+
+
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+<body>
+  <div id="container">
+    <div id="particles-js"></div>
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+				<img lazy-src="" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+			<h1 class="header-author"><a href="/">John Doe</a></h1>
+		</hgroup>
+
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">Home</a></li>
+				        
+							<li><a href="/archives">Archives</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="half-header-menu">
+						<a class="hide">Home</a>
+						<a>Tags</a>
+						<a>Links</a>
+						<a>About</a>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+						</div>
+						<!-- music -->
+						
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://github.com/">github</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">I&#39;m a developer.</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide"></h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author"></h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">Home</a></li>
+		        
+					<li><a href="/archives">Archives</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-乐购项目遇到的问题总结" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2022/08/21/%E4%B9%90%E8%B4%AD%E9%A1%B9%E7%9B%AE%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/" class="article-date">
+  	<time datetime="2022-08-21T08:38:43.237Z" itemprop="datePublished">2022-08-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+    <div class="article-entry" itemprop="articleBody">
       
+        <h1 id="乐购项目遇到的问题总结"><a href="#乐购项目遇到的问题总结" class="headerlink" title="乐购项目遇到的问题总结"></a>乐购项目遇到的问题总结</h1><h2 id="方法一响应路由参数的变化"><a href="#方法一响应路由参数的变化" class="headerlink" title="方法一响应路由参数的变化"></a>方法一响应路由参数的变化</h2><p>提醒一下，当使用路由参数时，例如从 <code>/user/foo</code> 导航到 <code>/user/bar</code>，<strong>原来的组件实例会被复用</strong>。因为两个路由都渲染同个组件，比起销毁再创建，复用则显得更加高效。<strong>不过，这也意味着组件的生命周期钩子不会再被调用</strong>。</p>
+<p>复用组件时，想对路由参数的变化作出响应的话，你可以简单地 watch (监测变化) <code>$route</code> 对象：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title class_">User</span> = &#123;</span><br><span class="line">  <span class="attr">template</span>: <span class="string">&#x27;...&#x27;</span>,</span><br><span class="line">  <span class="attr">watch</span>: &#123;</span><br><span class="line">    $route(to, <span class="keyword">from</span>) &#123;</span><br><span class="line">      <span class="comment">// 对路由变化作出响应...</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>或者使用 2.2 中引入的 <code>beforeRouteUpdate</code> <a target="_blank" rel="noopener" href="https://router.vuejs.org/zh/guide/advanced/navigation-guards.html">导航守卫</a>：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title class_">User</span> = &#123;</span><br><span class="line">  <span class="attr">template</span>: <span class="string">&#x27;...&#x27;</span>,</span><br><span class="line">  <span class="title function_">beforeRouteUpdate</span>(<span class="params">to, <span class="keyword">from</span>, next</span>) &#123;</span><br><span class="line">    <span class="comment">// react to route changes...</span></span><br><span class="line">    <span class="comment">// don&#x27;t forget to call next()</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="E:\MD学习笔记\img\路由跳转1.jpg"></p>
+<h2 id="方法二利用导航守卫"><a href="#方法二利用导航守卫" class="headerlink" title="方法二利用导航守卫"></a>方法二利用导航守卫</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title class_">Foo</span> = &#123;</span><br><span class="line">  <span class="attr">template</span>: <span class="string">`...`</span>,</span><br><span class="line">  <span class="title function_">beforeRouteEnter</span>(<span class="params">to, <span class="keyword">from</span>, next</span>) &#123;</span><br><span class="line">    <span class="comment">// 在渲染该组件的对应路由被 confirm 前调用</span></span><br><span class="line">    <span class="comment">// 不！能！获取组件实例 `this`</span></span><br><span class="line">    <span class="comment">// 因为当守卫执行前，组件实例还没被创建</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="title function_">beforeRouteUpdate</span>(<span class="params">to, <span class="keyword">from</span>, next</span>) &#123;</span><br><span class="line">    <span class="comment">// 在当前路由改变，但是该组件被复用时调用</span></span><br><span class="line">    <span class="comment">// 举例来说，对于一个带有动态参数的路径 /foo/:id，在 /foo/1 和 /foo/2 之间跳转的时候，</span></span><br><span class="line">    <span class="comment">// 由于会渲染同样的 Foo 组件，因此组件实例会被复用。而这个钩子就会在这个情况下被调用。</span></span><br><span class="line">    <span class="comment">// 可以访问组件实例 `this`</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="title function_">beforeRouteLeave</span>(<span class="params">to, <span class="keyword">from</span>, next</span>) &#123;</span><br><span class="line">    <span class="comment">// 导航离开该组件的对应路由时调用</span></span><br><span class="line">    <span class="comment">// 可以访问组件实例 `this`</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="E:\MD学习笔记\img\路由守卫.jpg"></p>
+<h2 id="第三种"><a href="#第三种" class="headerlink" title="第三种"></a>第三种</h2><p><img src="E:\MD学习笔记\img\路由.jpg"></p>
+<p>这样可以检测到每个组件的变化从而组件会渲染</p>
+<h2 id="第四种"><a href="#第四种" class="headerlink" title="第四种"></a>第四种</h2><p><img src="E:\MD学习笔记\img\第四种.jpg"></p>
+<p>不要用push,而是重新发起数据请求,获得值后再重新进行渲染</p>
+<h2 id="第五种"><a href="#第五种" class="headerlink" title="第五种"></a>第五种</h2><p>先push到一个空白页面,然后在这个空白页面的created方法里在携带参数push回来即可</p>
+<h1 id="组件缓存"><a href="#组件缓存" class="headerlink" title="组件缓存"></a>组件缓存</h1><p><img src="E:\MD学习笔记\img\服装.jpg"></p>
+<h3 id="解决组件缓存带来的问题"><a href="#解决组件缓存带来的问题" class="headerlink" title="解决组件缓存带来的问题"></a>解决组件缓存带来的问题</h3><h4 id="1、prop"><a href="#1、prop" class="headerlink" title="1、prop:"></a>1、prop:</h4><p><strong>include</strong>: 字符串或正则表达式。只有匹配的组件会被缓存。<br><strong>exclude</strong>: 字符串或正则表达式。任何匹配的组件都不会被缓存。<br>　　exclude优先级大于include</p>
+<p><img src="E:\MD学习笔记\img\name.jpg"></p>
+<p>1先给要缓存的组件加上name</p>
+<p>2在App.vue中</p>
+<p><img src="E:\MD学习笔记\img\keep.jpg"></p>
+<h2 id="2-利用meta"><a href="#2-利用meta" class="headerlink" title="2.利用meta"></a>2.利用meta</h2><p><img src="E:\MD学习笔记\img\meta.jpg"></p>
+<p><img src="E:\MD学习笔记\img\213123.jpg"></p>
+<h4 id="3、keep-alive生命周期钩子函数：activated、deactivated"><a href="#3、keep-alive生命周期钩子函数：activated、deactivated" class="headerlink" title="3、keep-alive生命周期钩子函数：activated、deactivated"></a>3、keep-alive生命周期钩子函数：activated、deactivated</h4><p>使用&#96;&#96;会将数据保留在内存中，如果要在每次进入页面的时候获取最新的数据，需要在<code>activated</code>阶段获取数据，承担原来<code>created</code>钩子中获取数据的任务。</p>
+<p>　　被包含在 &#96;&#96; 中创建的组件，会多出两个生命周期的钩子: activated 与 deactivated</p>
+<p>　　<code>activated</code>：在组件被激活时调用，在组件第一次渲染时也会被调用，之后每次keep-alive激活时被调用。</p>
+<p>　　<code>deactivated</code>：在组件被停用时调用。</p>
+<p>　　注意：只有组件被 <code>keep-alive</code> 包裹时，这两个生命周期才会被调用，如果作为正常组件使用，是不会被调用，以及在 2.1.0 版本之后，使用 <code>exclude</code> 排除之后，就算被包裹在 <code>keep-alive</code> 中，这两个钩子依然不会被调用！另外在服务端渲染时此钩子也不会被调用的。</p>
+<p>　　什么时候获取数据？</p>
+<p>　　当引入<code>keep-alive</code> 的时候，页面第一次进入，钩子的触发顺序<code>created-&gt; mounted-&gt; activated</code>，退出时触发<code>deactivated</code>。当再次进入（前进或者后退）时，只触发<code>activated</code>。</p>
+<p>我们知道 <code>keep-alive</code> 之后页面模板第一次初始化解析变成HTML片段后，再次进入就不在重新解析而是读取内存中的数据，即，只有当数据变化时，才使用VirtualDOM进行diff更新。故，页面进入的数据获取应该在<code>activated</code>中也放一份。数据下载完毕手动操作DOM的部分也应该在<code>activated</code>中执行才会生效。</p>
+<p><img src="E:\MD学习笔记\img\active.jpg"></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2022/08/21/%E6%BD%98%E5%AE%B6%E6%88%90%E4%B8%AD%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86%E6%A8%A1%E6%9D%BF/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">&lt;</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/08/21/%E4%B9%90%E5%B1%85%E5%89%8D%E5%8F%B0%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"></div>
+      <strong class="article-nav-caption">&gt;</strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+      <div class="footer-left">
+        &copy; 2022 John Doe
+      </div>
+        <div class="footer-right">
+          <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/preccrep/hexo-theme-jelly" target="_blank">Jelly</a>
+        </div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: false,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+
+<script src="/js/main.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

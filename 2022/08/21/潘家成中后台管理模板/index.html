@@ -1,32 +1,322 @@
-extends includes/layout.pug
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Hexo</title>
 
-block content
-  #post
-    if top_img === false
-      include includes/header/post-info.pug
+  <!-- keywords -->
+  
 
-    article#article-container.post-content!=page.content
-    include includes/post/post-copyright.pug
-    .tag_share
-      if (theme.post_meta.post.tags)
-        .post-meta__tag-list
-          each item, index in page.tags.data
-            a(href=url_for(item.path)).post-meta__tags #[=item.name]
-      include includes/third-party/share/index.pug
-        
-    if theme.reward.enable && theme.reward.QR_code
-      !=partial('includes/post/reward', {}, {cache: true})
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="配置接口地址 1 在setting.js里 123456789101112131415161718module.exports &#x3D; &amp;#123;  title: &amp;#x27;乐居后台管理系统2012&amp;#x27;,  &#x2F;**   * @type &amp;#123;boolean&amp;#125; true | false   * @description Whether fix the header   *&#x2F;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2022/08/21/%E6%BD%98%E5%AE%B6%E6%88%90%E4%B8%AD%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86%E6%A8%A1%E6%9D%BF/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="配置接口地址 1 在setting.js里 123456789101112131415161718module.exports &#x3D; &amp;#123;  title: &amp;#x27;乐居后台管理系统2012&amp;#x27;,  &#x2F;**   * @type &amp;#123;boolean&amp;#125; true | false   * @description Whether fix the header   *&#x2F;">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="c:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20210516142201037.png">
+<meta property="og:image" content="c:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20210516145732862.png">
+<meta property="og:image" content="c:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20210516145743353.png">
+<meta property="og:image" content="c:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20210516145620224.png">
+<meta property="og:image" content="c:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20210516145552710.png">
+<meta property="article:published_time" content="2022-08-21T08:40:53.918Z">
+<meta property="article:modified_time" content="2021-05-18T03:12:27.330Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="c:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20210516142201037.png">
+  
+    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.ico">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
 
-    //- ad
-    if theme.ad && theme.ad.post
-      .ads-wrap!=theme.ad.post
+  
+  
 
-    if theme.post_pagination
-      include includes/pagination.pug
-    if theme.related_post && theme.related_post.enable
-      != related_posts(page,site.posts)
+  
+<script src="//cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
 
-    if page.comments !== false && theme.comments && theme.comments.use
-      - var commentsJsLoad = true
-      !=partial('includes/third-party/comments/index', {}, {cache: true})
+  
+<script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+
+
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+<body>
+  <div id="container">
+    <div id="particles-js"></div>
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+				<img lazy-src="" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+			<h1 class="header-author"><a href="/">John Doe</a></h1>
+		</hgroup>
+
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">Home</a></li>
+				        
+							<li><a href="/archives">Archives</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="half-header-menu">
+						<a class="hide">Home</a>
+						<a>Tags</a>
+						<a>Links</a>
+						<a>About</a>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+						</div>
+						<!-- music -->
+						
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://github.com/">github</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">I&#39;m a developer.</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide"></h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author"></h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">Home</a></li>
+		        
+					<li><a href="/archives">Archives</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-潘家成中后台管理模板" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2022/08/21/%E6%BD%98%E5%AE%B6%E6%88%90%E4%B8%AD%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86%E6%A8%A1%E6%9D%BF/" class="article-date">
+  	<time datetime="2022-08-21T08:40:53.918Z" itemprop="datePublished">2022-08-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+    <div class="article-entry" itemprop="articleBody">
       
+        <p>配置接口地址</p>
+<p>1 在setting.js里</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line"></span><br><span class="line">  <span class="attr">title</span>: <span class="string">&#x27;乐居后台管理系统2012&#x27;</span>,</span><br><span class="line"></span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@type</span> &#123;<span class="type">boolean</span>&#125; true | false</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@description</span> Whether fix the header</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  <span class="attr">fixedHeader</span>: <span class="literal">false</span>,</span><br><span class="line"></span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@type</span> &#123;<span class="type">boolean</span>&#125; true | false</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@description</span> Whether show the logo in sidebar</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  <span class="attr">sidebarLogo</span>: <span class="literal">false</span>,</span><br><span class="line">  <span class="comment">// host:&quot;http://leju.bufan.cloud&quot;,</span></span><br><span class="line">  <span class="attr">host</span>: <span class="string">&#x27;http://localhost&#x27;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>接着在vue.config.js里</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">devServer</span>: &#123;</span><br><span class="line">  <span class="attr">port</span>: port,</span><br><span class="line">  <span class="attr">open</span>: <span class="literal">true</span>,</span><br><span class="line">  <span class="attr">overlay</span>: &#123;</span><br><span class="line">    <span class="attr">warnings</span>: <span class="literal">false</span>,</span><br><span class="line">    <span class="attr">errors</span>: <span class="literal">true</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">proxy</span>: &#123;</span><br><span class="line">    <span class="comment">// 配置代理 希望拦截当前的host地址 替换为目标地址</span></span><br><span class="line">    <span class="comment">// key: &#123;&#125;   ;  key为拦截的规则,可以是正则表达式</span></span><br><span class="line">    <span class="string">&#x27;/(lejuAdmin|admin)&#x27;</span>: &#123;</span><br><span class="line">      <span class="attr">target</span>: host, <span class="comment">// 8080可以省略不写 所以代理地址和当前项目不是同一个地址!!</span></span><br><span class="line">      <span class="attr">changeOrigin</span>: <span class="literal">true</span> <span class="comment">// 如果是跨域 需要添加</span></span><br><span class="line">      <span class="comment">// pathRewrite: &#123;</span></span><br><span class="line">      <span class="comment">//   // [&#x27;/xxx&#x27;]: &#x27;/yyy&#x27; // 定位key的地址,转化为value地址</span></span><br><span class="line">      <span class="comment">// &#125;</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// before: require(&#x27;./mock/mock-server.js&#x27;)</span></span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+
+<h1 id="新增页面但是不需要在侧边导航栏显示"><a href="#新增页面但是不需要在侧边导航栏显示" class="headerlink" title="新增页面但是不需要在侧边导航栏显示"></a>新增页面但是不需要在侧边导航栏显示</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">        <span class="attr">path</span>: <span class="string">&#x27;addArticle&#x27;</span>,</span><br><span class="line">        <span class="attr">name</span>: <span class="string">&#x27;AddArticle&#x27;</span>,</span><br><span class="line">        <span class="attr">hidden</span>: <span class="literal">true</span>,<span class="comment">//表示侧边导航栏不显示</span></span><br><span class="line">        <span class="attr">component</span>: <span class="function">() =&gt;</span> <span class="title function_">import</span>(<span class="string">&#x27;@/views/content/article/Detail/index&#x27;</span>),</span><br><span class="line">        <span class="attr">meta</span>: &#123; <span class="attr">title</span>: <span class="string">&#x27;新增文章&#x27;</span>, <span class="attr">icon</span>: <span class="string">&#x27;el-icon-document&#x27;</span>, </span><br><span class="line">         <span class="attr">activeMenu</span>: <span class="string">&#x27;/content/article&#x27;</span><span class="comment">//表示相应的左侧导航栏高亮</span></span><br><span class="line">              &#125;</span><br></pre></td></tr></table></figure>
+
+<p>路由设置注意事项</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 当设置 true 的时候该路由不会在侧边栏出现 如401，login等页面，或者如一些编辑页面/edit/1</span></span><br><span class="line"><span class="attr">hidden</span>: <span class="literal">true</span> <span class="comment">// (默认 false)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//当设置 noRedirect 的时候该路由在面包屑导航中不可被点击</span></span><br><span class="line"><span class="attr">redirect</span>: <span class="string">&#x27;noRedirect&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 当你一个路由下面的 children 声明的路由大于1个时，自动会变成嵌套的模式--如组件页面</span></span><br><span class="line"><span class="comment">// 只有一个时，会将那个子路由当做根路由显示在侧边栏--如引导页面</span></span><br><span class="line"><span class="comment">// 若你想不管路由下面的 children 声明的个数都显示你的根路由</span></span><br><span class="line"><span class="comment">// 你可以设置 alwaysShow: true，这样它就会忽略之前定义的规则，一直显示根路由</span></span><br><span class="line"><span class="attr">alwaysShow</span>: <span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="attr">name</span>: <span class="string">&#x27;router-name&#x27;</span> <span class="comment">// 设定路由的名字，一定要填写不然使用&lt;keep-alive&gt;时会出现各种问题</span></span><br><span class="line"><span class="attr">meta</span>: &#123;</span><br><span class="line">  <span class="attr">roles</span>: [<span class="string">&#x27;admin&#x27;</span>, <span class="string">&#x27;editor&#x27;</span>] <span class="comment">// 设置该路由进入的权限，支持多个权限叠加</span></span><br><span class="line">  <span class="attr">title</span>: <span class="string">&#x27;title&#x27;</span> <span class="comment">// 设置该路由在侧边栏和面包屑中展示的名字</span></span><br><span class="line">  <span class="attr">icon</span>: <span class="string">&#x27;svg-name&#x27;</span> <span class="comment">// 设置该路由的图标，支持 svg-class，也支持 el-icon-x element-ui 的 icon</span></span><br><span class="line">  <span class="attr">noCache</span>: <span class="literal">true</span> <span class="comment">// 如果设置为true，则不会被 &lt;keep-alive&gt; 缓存(默认 false)</span></span><br><span class="line">  <span class="attr">breadcrumb</span>: <span class="literal">false</span> <span class="comment">//  如果设置为false，则不会在breadcrumb面包屑中显示(默认 true)</span></span><br><span class="line">  <span class="attr">affix</span>: <span class="literal">true</span> <span class="comment">// 如果设置为true，它则会固定在tags-view中(默认 false)</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">// 当路由设置了该属性，则会高亮相对应的侧边栏。</span></span><br><span class="line">  <span class="comment">// 这在某些场景非常有用，比如：一个文章的列表页路由为：/article/list</span></span><br><span class="line">  <span class="comment">// 点击文章进入文章详情页，这时候路由为/article/1，但你想在侧边栏高亮文章列表的路由，就可以进行如下设置</span></span><br><span class="line">  <span class="attr">activeMenu</span>: <span class="string">&#x27;/article/list&#x27;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="全局过滤器的使用"><a href="#全局过滤器的使用" class="headerlink" title="全局过滤器的使用"></a>全局过滤器的使用</h1><p>第一步在src目录下创建 filters文件夹</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 用于存放所有的全局 过滤器方法</span></span><br><span class="line"><span class="keyword">import</span> <span class="variable constant_">NP</span> <span class="keyword">from</span> <span class="string">&quot;number-precision&quot;</span>;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 把以分为单位的number转换为元为单位的字符串并且保留两位小数</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">money</span>(<span class="params">v, n</span>) &#123;</span><br><span class="line">  <span class="comment">// v/100 并且保留2位小数  在关于钱的计算上 是否采用四舍五入是需要根据具体场景的</span></span><br><span class="line">  <span class="comment">// 我们这里最小单位是分 所以也不存在问题</span></span><br><span class="line">  <span class="keyword">return</span> (n || <span class="string">&quot;&quot;</span>) + v;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">initAttrArr</span>(<span class="params">v</span>) &#123;</span><br><span class="line">  <span class="keyword">var</span> reg = <span class="regexp">/^\[\&#123;\&quot;/gi</span>;</span><br><span class="line">  <span class="keyword">if</span> (reg.<span class="title function_">test</span>(v)) &#123;</span><br><span class="line">    <span class="keyword">const</span> arr = <span class="title class_">JSON</span>.<span class="title function_">parse</span>(v);</span><br><span class="line">    <span class="keyword">let</span> str = <span class="string">&quot;&quot;</span>;</span><br><span class="line">    arr.<span class="title function_">forEach</span>(<span class="function">(<span class="params">element</span>) =&gt;</span> &#123;</span><br><span class="line">      str = str + element.<span class="property">key</span> + <span class="string">&quot;:&quot;</span> + element.<span class="property">value</span> + <span class="string">&quot; &quot;</span>;</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="keyword">return</span> str;</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> v;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// function money(v, n) &#123;</span></span><br><span class="line"><span class="comment">//     // v/100 并且保留2位小数  在关于钱的计算上 是否采用四舍五入是需要根据具体场景的</span></span><br><span class="line"><span class="comment">//     // 我们这里最小单位是分 所以也不存在问题</span></span><br><span class="line"><span class="comment">//     return (n || &#x27;&#x27;) + NP.round(v / 100, 2)</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  money,</span><br><span class="line">  initAttrArr,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>第二步</p>
+<p>在main.js中引入</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> filters <span class="keyword">from</span> <span class="string">&#x27;./filters&#x27;</span> <span class="comment">// global filters</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> key <span class="keyword">in</span> filters) &#123;</span><br><span class="line">  <span class="title class_">Vue</span>.<span class="title function_">filter</span>(key, filters[key])</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="全局样式的设置"><a href="#全局样式的设置" class="headerlink" title="全局样式的设置"></a>全局样式的设置</h1><p>src&#x2F;styles&#x2F;index.scss</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#app &#123;</span><br><span class="line">  <span class="attr">height</span>: <span class="number">100</span>%;</span><br><span class="line">  min-<span class="attr">width</span>: 1366px;</span><br><span class="line"><span class="comment">//设置最小宽度后页面上的内容不会随之改变</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>src&#x2F;layout&#x2F;AppMain可设置 主要显示区域的样式</p>
+<h1 id="图标"><a href="#图标" class="headerlink" title="图标"></a>图标</h1><p>一</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;i style=<span class="string">&quot;margin-right: 6px&quot;</span> <span class="keyword">class</span>=<span class="string">&quot;el-icon-view&quot;</span>&gt;&lt;/i&gt;</span><br></pre></td></tr></table></figure>
+
+<p>二 要先把图标文件下载到src&#x2F;icons&#x2F;svg文件夹里</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;el-tag</span><br><span class="line">           style=<span class="string">&quot;font-size: 25px&quot;</span></span><br><span class="line">           v-<span class="keyword">else</span>-<span class="keyword">if</span>=<span class="string">&quot;scope.row.payType === 1&quot;</span></span><br><span class="line">           effect=<span class="string">&quot;dark&quot;</span></span><br><span class="line">         &gt;</span><br><span class="line">           <span class="language-xml"><span class="tag">&lt;<span class="name">svg-icon</span> <span class="attr">icon-class</span>=<span class="string">&quot;aliPay&quot;</span> /&gt;</span></span></span><br><span class="line">         &lt;/el-tag&gt;</span><br></pre></td></tr></table></figure>
+
+<p>路由里</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">meta</span>: &#123; <span class="attr">title</span>: <span class="string">&quot;商品管理&quot;</span>, <span class="attr">icon</span>: <span class="string">&quot;el-icon-s-shop&quot;</span> &#125;,</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">path</span>: <span class="string">&quot;permission&quot;</span>,</span><br><span class="line">       <span class="attr">name</span>: <span class="string">&quot;Permission&quot;</span>,</span><br><span class="line">       <span class="attr">component</span>: <span class="function">() =&gt;</span> <span class="title function_">import</span>(<span class="string">&quot;@/views/power/permission&quot;</span>),</span><br><span class="line">       <span class="attr">meta</span>: &#123; <span class="attr">title</span>: <span class="string">&quot;资源管理&quot;</span>, <span class="attr">icon</span>: <span class="string">&quot;menu&quot;</span> &#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="用户登录-x2F-退出"><a href="#用户登录-x2F-退出" class="headerlink" title="用户登录&#x2F;退出"></a>用户登录&#x2F;退出</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; removeToken &#125; <span class="keyword">from</span> <span class="string">&#x27;@/utils/myauth.js&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210516142201037.png" alt="image-20210516142201037"></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">  <span class="attr">methods</span>: &#123;</span><br><span class="line">    <span class="title function_">toggleSideBar</span>(<span class="params"></span>) &#123;</span><br><span class="line">      <span class="variable language_">this</span>.<span class="property">$store</span>.<span class="title function_">dispatch</span>(<span class="string">&#x27;app/toggleSideBar&#x27;</span>)</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// async logout() &#123;</span></span><br><span class="line">    <span class="comment">//   await this.$store.dispatch(&#x27;user/logout&#x27;)</span></span><br><span class="line">    <span class="comment">//   this.$router.push(`/login?redirect=$&#123;this.$route.fullPath&#125;`)</span></span><br><span class="line">    <span class="comment">// &#125;</span></span><br><span class="line">    <span class="title function_">logout</span>(<span class="params"></span>) &#123;</span><br><span class="line">      <span class="title function_">removeToken</span>()</span><br><span class="line">      <span class="variable language_">this</span>.<span class="property">$router</span>.<span class="title function_">push</span>(&#123; <span class="attr">name</span>: <span class="string">&#x27;Login&#x27;</span> &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="跨域代理"><a href="#跨域代理" class="headerlink" title="跨域代理"></a>跨域代理</h1><p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210516145732862.png" alt="image-20210516145732862"></p>
+<p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210516145743353.png" alt="image-20210516145743353"></p>
+<p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210516145620224.png" alt="image-20210516145620224"></p>
+<p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210516145552710.png" alt="image-20210516145552710"></p>
+<p>解释:配置代理前</p>
+<p>我们网页的地址为:<a target="_blank" rel="noopener" href="http://localhost:8080/">http://localhost:8080</a></p>
+<p>想要访问<a target="_blank" rel="noopener" href="http://leju.bufan.cloud/lejuAdmin/orderReturn/findReturnApply/">http://leju.bufan.cloud/lejuAdmin/orderReturn/findReturnApply/</a></p>
+<p>这样的网址 就会跨域</p>
+<p>配置完后我们自己电脑的网页地址前面就为<a target="_blank" rel="noopener" href="http://leju.bufan.cloud/">http://leju.bufan.cloud/</a></p>
+<h2 id="1-一个完整的webpack配置代理代码"><a href="#1-一个完整的webpack配置代理代码" class="headerlink" title="1. 一个完整的webpack配置代理代码"></a>1. 一个完整的webpack配置代理代码</h2><p>设置代理的前提条件：<br>1、需要使用本地开发插件：<a target="_blank" rel="noopener" href="https://github.com/webpack/webpack-dev-server">webpack-dev-server</a>。<br>2、webpack-dev-server使用的是<a target="_blank" rel="noopener" href="https://github.com/chimurai/http-proxy-middleware">http-proxy-middleware</a>来实现跨域代理的。<br>3、webpack版本： 3.0、4.0亲测有效</p>
+<p>一个webpack配置信息：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">module.exports = &#123;</span><br><span class="line">  //...</span><br><span class="line">  devServer: &#123;</span><br><span class="line">    proxy: &#123;</span><br><span class="line">      &#x27;/api&#x27;: &#123;</span><br><span class="line">        target: &#x27;http://www.baidu.com/&#x27;,</span><br><span class="line">        pathRewrite: &#123;&#x27;^/api&#x27; : &#x27;&#x27;&#125;,</span><br><span class="line">        changeOrigin: true,     // target是域名的话，需要这个参数，</span><br><span class="line">        secure: false,          // 设置支持https协议的代理</span><br><span class="line">      &#125;,</span><br><span class="line">      &#x27;/api2&#x27;: &#123;</span><br><span class="line">          .....</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-配置中主要的参数说明"><a href="#2-配置中主要的参数说明" class="headerlink" title="2. 配置中主要的参数说明"></a>2. 配置中主要的参数说明</h2><h3 id="2-1-‘-x2F-api’"><a href="#2-1-‘-x2F-api’" class="headerlink" title="2.1 ‘&#x2F;api’"></a>2.1 ‘&#x2F;api’</h3><p>捕获API的标志，如果API中有这个字符串，那么就开始匹配代理，<br>比如API请求<code>/api/users</code>, 会被代理到请求 <a target="_blank" rel="noopener" href="http://www.baidu.com/api/users">http://www.baidu.com/api/users</a> 。</p>
+<h3 id="2-2-target"><a href="#2-2-target" class="headerlink" title="2.2 target"></a>2.2 target</h3><p>代理的API地址，就是需要跨域的API地址。<br>地址可以是域名,如：<code>http://www.baidu.com</code><br>也可以是IP地址：<code>http://127.0.0.1:3000</code><br>如果是域名需要额外添加一个参数<code>changeOrigin: true</code>，否则会代理失败。</p>
+<h3 id="2-3-pathRewrite"><a href="#2-3-pathRewrite" class="headerlink" title="2.3 pathRewrite"></a>2.3 pathRewrite</h3><p>路径重写，也就是说会修改最终请求的API路径。<br>比如访问的API路径：<code>/api/users</code>,<br>设置<code>pathRewrite: &#123;&#39;^/api&#39; : &#39;&#39;&#125;,</code>后，<br>最终代理访问的路径：<code>http://www.baidu.com/users</code>，<br>这个参数的目的是给代理命名后，在访问时把命名删除掉。</p>
+<h3 id="2-4-changeOrigin"><a href="#2-4-changeOrigin" class="headerlink" title="2.4 changeOrigin"></a>2.4 changeOrigin</h3><p>这个参数可以让target参数是域名。</p>
+<h3 id="2-5-secure"><a href="#2-5-secure" class="headerlink" title="2.5 secure"></a>2.5 secure</h3><p><code>secure: false</code>,不检查安全问题。<br>设置后，可以接受运行在 HTTPS 上，可以使用无效证书的后端服务器</p>
+<h3 id="2-6-其他参数配置查看http-proxy-middleware文档"><a href="#2-6-其他参数配置查看http-proxy-middleware文档" class="headerlink" title="2.6 其他参数配置查看http-proxy-middleware文档"></a>2.6 其他参数配置查看http-proxy-middleware文档</h3><p>其他的配置参数等信息，可以查看这里：<a target="_blank" rel="noopener" href="https://github.com/chimurai/http-proxy-middleware">https://github.com/chimurai/h...</a></p>
+<h2 id="3-参考资料"><a href="#3-参考资料" class="headerlink" title="3. 参考资料"></a>3. 参考资料</h2><p>webpack-dev-server： <a target="_blank" rel="noopener" href="https://github.com/webpack/webpack-dev-server">https://github.com/webpack/we...</a><br>http-proxy-middleware： <a target="_blank" rel="noopener" href="https://github.com/chimurai/http-proxy-middleware">https://github.com/chimurai/h...</a><br><a target="_blank" rel="noopener" href="https://webpack.docschina.org/configuration/dev-server/#devserver-proxy">webpack官网 devServer.proxy配置</a></p>
+<h1 id="把sku颜色规格转换"><a href="#把sku颜色规格转换" class="headerlink" title="把sku颜色规格转换"></a>把sku颜色规格转换</h1><p>模板的fillters预设有转换函数</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">initAttrArr</span>(<span class="params">v</span>) &#123;</span><br><span class="line">  <span class="keyword">var</span> reg = <span class="regexp">/^\[\&#123;\&quot;/gi</span>;</span><br><span class="line">  <span class="keyword">if</span> (reg.<span class="title function_">test</span>(v)) &#123;</span><br><span class="line">    <span class="keyword">const</span> arr = <span class="title class_">JSON</span>.<span class="title function_">parse</span>(v);</span><br><span class="line">    <span class="keyword">let</span> str = <span class="string">&quot;&quot;</span>;</span><br><span class="line">    arr.<span class="title function_">forEach</span>(<span class="function"><span class="params">element</span> =&gt;</span> &#123;</span><br><span class="line">      str = str + element.<span class="property">key</span> + <span class="string">&quot;:&quot;</span> + element.<span class="property">value</span> + <span class="string">&quot; &quot;</span>;</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="keyword">return</span> str;</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> v;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="导出excle表格"><a href="#导出excle表格" class="headerlink" title="导出excle表格"></a>导出excle表格</h1><h3 id="1-引入插件"><a href="#1-引入插件" class="headerlink" title="1.引入插件"></a>1.引入插件</h3><p>从panjiachen的项目里下载的<strong>vue-element-admin-master</strong>(<a target="_blank" rel="noopener" href="https://github.com/PanJiaChen/vue-element-admin">https://github.com/PanJiaChen/vue-element-admin</a>) 的src里的vendor文件复制到我们的项目里并安装依赖包</p>
+<p>安装依赖包</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install xlsx file-saver -S</span><br><span class="line">npm install script-loader -S -D</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-页面使用"><a href="#2-页面使用" class="headerlink" title="2.页面使用"></a>2.页面使用</h3><p>引入导出按钮</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;el-button</span><br><span class="line">      type=&quot;primary&quot;</span><br><span class="line">      size=&quot;mini&quot;</span><br><span class="line">      :loading=&quot;downloadLoading&quot;</span><br><span class="line">      @click=&quot;handleDownload&quot;</span><br><span class="line">    &gt;</span><br><span class="line">      导出商品列表excel文件</span><br><span class="line">    &lt;/el-button&gt;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">handleDownload</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">downloadLoading</span> = <span class="literal">true</span></span><br><span class="line">    <span class="title function_">import</span>(<span class="string">&#x27;@/vendor/Export2Excel&#x27;</span>).<span class="title function_">then</span>(<span class="function">(<span class="params">excel</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">const</span> tHeader = [<span class="string">&#x27;商品名称&#x27;</span>, <span class="string">&#x27;商品品牌&#x27;</span>, <span class="string">&#x27;商品价格&#x27;</span>]</span><br><span class="line">      <span class="keyword">const</span> filterVal = [<span class="string">&#x27;name&#x27;</span>, <span class="string">&#x27;brandName&#x27;</span>, <span class="string">&#x27;price&#x27;</span>]</span><br><span class="line">      <span class="keyword">const</span> data = []</span><br><span class="line">      <span class="variable language_">this</span>.<span class="property">goodsList</span>.<span class="title function_">forEach</span>(<span class="function">(<span class="params">out</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">var</span> outArr = []</span><br><span class="line">        filterVal.<span class="title function_">forEach</span>(<span class="function">(<span class="params">inner</span>) =&gt;</span> &#123;</span><br><span class="line">          outArr.<span class="title function_">push</span>(out[inner])</span><br><span class="line">        &#125;)</span><br><span class="line">        data.<span class="title function_">push</span>(outArr)</span><br><span class="line">      &#125;)</span><br><span class="line">      <span class="comment">//data====&gt;[[&#x27;家乐铭品鞋柜&#x27;,&#x27;家乐名品 (JLVP)&#x27;,&#x27;4100&#x27;]]</span></span><br><span class="line">      <span class="comment">// console.log(&#x27;list===&#x27;,JSON.stringify()list)</span></span><br><span class="line">      excel.<span class="title function_">export_json_to_excel</span>(&#123;</span><br><span class="line">        <span class="attr">header</span>: tHeader,</span><br><span class="line">        data,</span><br><span class="line">        <span class="attr">filename</span>: <span class="variable language_">this</span>.<span class="property">filename</span>,</span><br><span class="line">        <span class="attr">autoWidth</span>: <span class="variable language_">this</span>.<span class="property">autoWidth</span>,</span><br><span class="line">        <span class="attr">bookType</span>: <span class="variable language_">this</span>.<span class="property">bookType</span></span><br><span class="line">      &#125;)</span><br><span class="line">      <span class="variable language_">this</span>.<span class="property">downloadLoading</span> = <span class="literal">false</span></span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;,</span><br></pre></td></tr></table></figure>
+
+<h1 id="全局组件"><a href="#全局组件" class="headerlink" title="全局组件"></a>全局组件</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">申浩:</span><br><span class="line">这个在 src下的 components里</span><br><span class="line"></span><br><span class="line">申浩:</span><br><span class="line">有个index.<span class="property">js</span></span><br><span class="line"></span><br><span class="line">申浩:</span><br><span class="line">在里边注册，然后在main.<span class="property">js</span>里用vue.<span class="property">use</span>调用</span><br><span class="line"></span><br><span class="line">申浩:</span><br><span class="line">就全局注册组件了</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2022/08/21/%E6%A0%91%E5%BD%A2%E7%BB%93%E6%9E%84%E9%81%8D%E5%8E%86/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">&lt;</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/08/21/%E4%B9%90%E8%B4%AD%E9%A1%B9%E7%9B%AE%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"></div>
+      <strong class="article-nav-caption">&gt;</strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+      <div class="footer-left">
+        &copy; 2022 John Doe
+      </div>
+        <div class="footer-right">
+          <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/preccrep/hexo-theme-jelly" target="_blank">Jelly</a>
+        </div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: false,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+
+<script src="/js/main.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
