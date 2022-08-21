@@ -71,6 +71,113 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-JS笔记" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/08/21/JS%E7%AC%94%E8%AE%B0/" class="article-date">
+  <time class="dt-published" datetime="2022-08-21T08:36:06.039Z" itemprop="datePublished">2022-08-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="数组中查找是否存在某个元素"><a href="#数组中查找是否存在某个元素" class="headerlink" title="数组中查找是否存在某个元素"></a>数组中查找是否存在某个元素</h1><p>可以使用数组的indexOf()方法，如果返回值为-1则说明不存在，如果返回值为大于-1的整数，则说明存在。例如： var arr &#x3D; [1,2,3]; arr.indexOf(1); &#x2F;&#x2F; 返回0 arr.indexOf(5); &#x2F;&#x2F; 返回-1 附：返回值为数组中的最靠前元素在数组的位置</p>
+<h1 id="ES6-set方法"><a href="#ES6-set方法" class="headerlink" title="ES6 set方法"></a>ES6 set方法</h1><p>ES6 提供了新的数据结构 Set。</p>
+<p><strong>特性</strong></p>
+<p>似于数组，但它的一大特性就是所有元素都是唯一的，没有重复。</p>
+<p>我们可以利用这一唯一特性进行数组的去重工作。</p>
+<p>单一数组的去重。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let set6 = new Set([1, 2, 2, 3, 4, 3, 5])</span><br><span class="line">console.log(&#x27;distinct 1:&#x27;, set6)</span><br></pre></td></tr></table></figure>
+
+<p>结果：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">distinct 1: Set &#123; 1, 2, 3, 4, 5 &#125;</span><br></pre></td></tr></table></figure>
+
+<p>多数组的合并去重</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">let arr1 = [1, 2, 3, 4]</span><br><span class="line">let arr2 = [2, 3, 4, 5, 6]</span><br><span class="line">let set7 = new Set([...arr1, ...arr2])</span><br><span class="line">console.log(&#x27;distinct 2:&#x27;, set7)</span><br></pre></td></tr></table></figure>
+
+<p>结果：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">distinct 2: Set &#123; 1, 2, 3, 4, 5, 6 &#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>操作</strong></p>
+<p>1.向Set中添加元素。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">let set1 = new Set()</span><br><span class="line">set1.add(1)</span><br><span class="line">set1.add(2)</span><br><span class="line">set1.add(3)</span><br><span class="line">console.log(&#x27;added:&#x27;, set1)</span><br></pre></td></tr></table></figure>
+
+<p>结果：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">added: Set &#123; 1, 2, 3 &#125;</span><br></pre></td></tr></table></figure>
+
+<p>2.从Set中删除元素。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">let set1 = new Set()</span><br><span class="line">set1.add(1)</span><br><span class="line">set1.add(2)</span><br><span class="line">set1.add(3)</span><br><span class="line">set1.delete(1)</span><br><span class="line">console.log(&#x27;deleted:&#x27;, set1)</span><br></pre></td></tr></table></figure>
+
+<p>结果：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">deleted: Set &#123; 2, 3 &#125;</span><br></pre></td></tr></table></figure>
+
+<p>3.判断某元素是否存在。</p>
+<p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">let set1 = new Set()</span><br><span class="line">set1.add(1)</span><br><span class="line">set1.add(2)</span><br><span class="line">set1.add(3)</span><br><span class="line">set1.delete(1)</span><br><span class="line">console.log(&#x27;has(1):&#x27;, set1.has(1))</span><br><span class="line">console.log(&#x27;has(2):&#x27;, set1.has(2))</span><br></pre></td></tr></table></figure>
+
+<p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<p>结果：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">has(1): false</span><br><span class="line">has(2): true</span><br></pre></td></tr></table></figure>
+
+<p>4.清除所有元素。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">let set1 = new Set()</span><br><span class="line">set1.add(1)</span><br><span class="line">set1.add(2)</span><br><span class="line">set1.add(3)</span><br><span class="line">set1.clear()</span><br><span class="line">console.log(&#x27;cleared:&#x27;, set1)</span><br></pre></td></tr></table></figure>
+
+<p>结果：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cleared: Set &#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>Set和Array互转</strong></p>
+<p>1.数组转Set</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">let set2 = new Set([4,5,6])</span><br><span class="line">console.log(&#x27;array to set 1:&#x27;, set2)</span><br><span class="line"></span><br><span class="line">let set3 = new Set(new Array(7, 8, 9))</span><br><span class="line">console.log(&#x27;array to set 2:&#x27;, set3)</span><br></pre></td></tr></table></figure>
+
+<p>结果：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">array to set 2: Set &#123; 4, 5, 6 &#125;</span><br><span class="line">array to set 3: Set &#123; 7, 8, 9 &#125;</span><br></pre></td></tr></table></figure>
+
+<p>2.Set转数组</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">let set4 = new Set([4, 5, 6])</span><br><span class="line">console.log(&#x27;set to array 1:&#x27;, [...set4])</span><br><span class="line">console.log(&#x27;set to array 2:&#x27;, Array.from(set4))</span><br></pre></td></tr></table></figure>
+
+<p>结果：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">set to array 1: [ 4, 5, 6 ]</span><br><span class="line">set to array 2: [ 4, 5, 6 ]</span><br></pre></td></tr></table></figure>
+
+<p><strong>遍历</strong></p>
+<p>可以使用Set实例对象的keys()，values()，entries()方法进行遍历。</p>
+<p>由于Set的键名和键值是同一个值，它的每一个元素的key和value是相同的，所有keys()和values()的返回值是相同的，entries()返回的元素中的key和value是相同的。</p>
+<p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">let set5 = new Set([4, 5, &#x27;hello&#x27;])</span><br><span class="line">console.log(&#x27;iterate useing Set.keys()&#x27;)</span><br><span class="line">for(let item of set5.keys()) &#123;</span><br><span class="line">  console.log(item)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">console.log(&#x27;iterate useing Set.values()&#x27;)</span><br><span class="line">for(let item of set5.values()) &#123;</span><br><span class="line">  console.log(item)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">console.log(&#x27;iterate useing Set.entries()&#x27;)</span><br><span class="line">for(let item of set5.entries()) &#123;</span><br><span class="line">  console.log(item)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<p>结果：</p>
+<p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">iterate useing Set.keys()</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">hello</span><br><span class="line">iterate useing Set.values()</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">hello</span><br><span class="line">iterate useing Set.entries()</span><br><span class="line">[ 4, 4 ]</span><br><span class="line">[ 5, 5 ]</span><br><span class="line">[ &#x27;hello&#x27;, &#x27;hello&#x27; ]</span><br></pre></td></tr></table></figure>
+
+<p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<p><strong>其他特性</strong></p>
+<p>在向Set加入值时，Set不会转换数据类型，内部在判断元素是否存在时用的类似于精确等于(&#x3D;&#x3D;&#x3D;)的方法，“2”和2是不同的，NaN等于其自身。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">let set8 = new Set()</span><br><span class="line">set8.add(NaN)</span><br><span class="line">set8.add(NaN)</span><br><span class="line">console.log(&#x27;NaN===Nan is true:&#x27;, set8)</span><br></pre></td></tr></table></figure>
+
+<p>结果：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">NaN===Nan is true: Set &#123; NaN &#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="map使用需要加上return"><a href="#map使用需要加上return" class="headerlink" title="map使用需要加上return"></a>map使用需要加上return</h1><p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210624163921352.png" alt="image-20210624163921352"></p>
+<h1 id="filter函数用的时候要加return"><a href="#filter函数用的时候要加return" class="headerlink" title="filter函数用的时候要加return"></a>filter函数用的时候要加return</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">delSku</span>(<span class="params">item, attr</span>) &#123;</span><br><span class="line">     <span class="variable language_">console</span>.<span class="title function_">log</span>(item.<span class="property">tempId</span>)</span><br><span class="line">     <span class="variable language_">this</span>[attr].<span class="property">arr</span> = <span class="variable language_">this</span>[attr].<span class="property">arr</span>.<span class="title function_">filter</span>(<span class="function">(<span class="params">val</span>) =&gt;</span> &#123;</span><br><span class="line">       <span class="keyword">return</span> val.<span class="property">tempId</span> != item.<span class="property">tempId</span></span><br><span class="line">     &#125;)</span><br><span class="line">     <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;删除后sku&#x27;</span>, <span class="variable language_">this</span>[attr].<span class="property">arr</span>)</span><br><span class="line">   &#125;,</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/08/21/JS%E7%AC%94%E8%AE%B0/" data-id="cl734oex10000i8uo93muce6j" data-title="" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-elementUI" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2022/08/21/elementUI/" class="article-date">
@@ -116,7 +223,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/08/21/elementUI/" data-id="cl734ggsl0000hcuo92a3cjre" data-title="" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/08/21/elementUI/" data-id="cl734oex70003i8uo0dui0bqm" data-title="" class="article-share-link">Share</a>
       
       
       
@@ -229,7 +336,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/08/21/eCharts%E7%AC%94%E8%AE%B0/" data-id="cl734ggsv0007hcuo942g7dor" data-title="" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/08/21/eCharts%E7%AC%94%E8%AE%B0/" data-id="cl734oexe0008i8uocj1o6su4" data-title="" class="article-share-link">Share</a>
       
       
       
@@ -277,6 +384,10 @@
       <ul>
         
           <li>
+            <a href="/2022/08/21/element-ui/">(no title)</a>
+          </li>
+        
+          <li>
             <a href="/2022/08/21/%E6%9D%83%E9%99%90%E8%AE%BE%E8%AE%A1%E5%92%8C%E7%AE%A1%E7%90%86/">(no title)</a>
           </li>
         
@@ -290,10 +401,6 @@
         
           <li>
             <a href="/2022/08/21/%E6%A0%91%E5%BD%A2%E7%BB%93%E6%9E%84%E9%81%8D%E5%8E%86/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2022/08/21/%E6%BD%98%E5%AE%B6%E6%88%90%E4%B8%AD%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86%E6%A8%A1%E6%9D%BF/">(no title)</a>
           </li>
         
       </ul>
